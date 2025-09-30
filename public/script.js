@@ -19,7 +19,9 @@ const wrong_input = `It seems you selected an invalid option😕😕.
                    97 to see current order
                    0 to cancel order.`
 
-const socket = io();
+const socket = io({
+  transports: ["polling"]
+});
 
 let cur_stage = "main"
 
