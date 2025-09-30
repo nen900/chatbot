@@ -25,12 +25,7 @@ const socket = io({
 
 let cur_stage = "main"
 
-appendMessages("You started a conversation with Fid");
-appendMessages(`fidBot said: ${bot_text}`);
-appendMessages("fidBot said:\n Here's the menu:");
-socket.emit("place_order", "menu");
-
-//on puting live  in pipeos this bit isnt working so getting the menu as page loads now. 
+appendmessages("You started a conversation with Fid")
 const userName = prompt("hey, what's uour name?")
 appendmessages(`fidBot said:\n Hello, ${userName}. ${bot_text}`)
 socket.emit("new_user", userName)
