@@ -29,7 +29,9 @@ const io = new Server(server, {
 const users = {};
 const cur_orders = {};
 
-app.use(express.static(path.join(__dirname, "public")));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 
 app.use(cookieParser());
 app.use(express.json())
