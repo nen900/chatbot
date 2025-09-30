@@ -268,7 +268,7 @@ app.post("/paystack/webhook", express.json(), async (req, res) => {
   res.sendStatus(200);
 });
 
-
-server.listen(8000, () => {
-  console.log("Socket.IO server running at http://localhost:8000/");
+const PORT = process.env.PORT || 8000;
+server.listen(PORT, "0.0.0.0", () => {
+  console.log(`Socket.IO server running on port ${PORT}`);
 });
