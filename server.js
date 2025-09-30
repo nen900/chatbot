@@ -25,6 +25,9 @@ const users = {};
 const cur_orders = {};
 
 app.use(express.static(path.join(__dirname, "public")));
+
+app.get("/ping", (req, res) => res.send("Server is running!"));
+
 app.use(cookieParser());
 app.use(express.json())
 
