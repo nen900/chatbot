@@ -13,7 +13,12 @@ const axios =  require("axios");
 require("dotenv").config();
 
 const fs = require("fs");
-let menu = JSON.parse(fs.readFileSync("menu.json"));
+let menu = {};
+try {
+  menu = JSON.parse(fs.readFileSync(path.join(__dirname, "menu.json")));
+} catch (err) {
+  console.error("Failed to read menu.json:", err);
+}
 
 const { User } = require("./userchema");
 
@@ -26,8 +31,6 @@ const cur_orders = {};
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/ping", (req, res) => res.send("Server is running!"));
-
 app.use(cookieParser());
 app.use(express.json())
 
@@ -37,7 +40,7 @@ mongoose.connect(process.env.MONGODB_URL, {
 });
 
 const db = mongoose.connection;
-db.on("err", console.error.bind( console, "MONGODB CONNECTION ERROR:" ));
+db.on("error", console.error.bind( console, "MONGODB CONNECTION ERROR:" ));
 db.once("open", () => {
     console.log("SUCCSFULLY CCONECTED to mungdb");
 })
