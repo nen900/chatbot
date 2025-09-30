@@ -1,0 +1,13 @@
+
+
+{
+  "1": { "name": "Jollof Rice", "price": 2000, "stock": 8 },
+  "2": { "name": "Fried Rice", "price": 2500, "stock": 9 },
+  "3": { "name": "Coconut Rice", "price": 2000, "stock": 5 },
+  "4": { "name": "Jellof Pasta", "price": 2500, "stock": 3 },
+  "5": { "name": "Noodles", "price": 1500, "stock": 6 },
+  "6": { "name": "Grilled or Peppered Chicken", "price": 2000, "stock": 7 },
+  "7": { "name": "Grilled or Peppered Turkey", "price": 2500, "stock": 1 },
+  "8": { "name": "Peppered Snail", "price": 2000, "stock": 4 },
+  "9": { "name": "Fries", "price": 1000, "stock": 2 }
+}
