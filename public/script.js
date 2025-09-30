@@ -19,14 +19,14 @@ const wrong_input = `It seems you selected an invalid option😕😕.
                    97 to see current order
                    0 to cancel order.`
 
-const socket = io("http://localhost:8000");
+const socket = io();
 
 let cur_stage = "main"
 
 appendmessages("You started a conversation with Fid")
-const userName = prompt("hey, what's uour name?")
-appendmessages(`fidBot said:\n Hello, ${userName}. ${bot_text}`)
-socket.emit("new_user", userName)
+// const userName = prompt("hey, what's uour name?")
+// appendmessages(`fidBot said:\n Hello, ${userName}. ${bot_text}`)
+// socket.emit("new_user", userName)
 
 //to show the messages in the chat
 socket.on("send_chat_message", data => {
@@ -38,6 +38,12 @@ socket.on("send_chat_message", data => {
 //    appendmessages(`${userName} joined the chat`)
 // });
 
+window.addEventListener("DOMContentLoaded", () => {
+    const userName = prompt("hey, what's uour name?")
+    appendmessages(`fidBot said:\n Hello, ${userName}. ${bot_text}`)
+    socket.emit("new_user", userName)
+
+})
 message_form.addEventListener("submit", e => {
     e.preventDefault()
 
@@ -74,7 +80,7 @@ message_form.addEventListener("submit", e => {
                     return;
                 }
 
-                fetch("http://localhost:8000/pay", {
+                fetch("/pay", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ amount: total, email, userID })

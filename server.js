@@ -223,7 +223,7 @@ app.post("/pay", async (req, res) => {
       "https://api.paystack.co/transaction/initialize",
       {
         email,
-        callback_url: "http://localhost:8000/payment/callback",
+        callback_url: `${process.env.BASE_URL}/payment/callback`,
         amount: amount * 100, //pays5ack uses kobo, so amount in naira like 5000*100 =turn to boko
         metadata: {userID}
       },
