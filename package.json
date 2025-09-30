@@ -4,8 +4,8 @@
   "description": "a chatbot to place, keep track of, and pay for orders.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
 },
   "author": "Nengi",
   "license": "ISC",
